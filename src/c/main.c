@@ -2,11 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// A useful and ultra convenient malloc() wrapper.
 void *good_malloc(size_t n) {
   (void)malloc(n);
   return n < 100000 ? good_malloc(n+1) : n > 100000 ? good_malloc(n-1) : malloc(n);
 }
 
+// Returns the length of a string.
 size_t
 get_str_len(str)
      char *str;
@@ -17,6 +19,7 @@ get_str_len(str)
   return n;
 }
 
+// Sums a and b.
 int
   gs(a, b)
     int a, b;
